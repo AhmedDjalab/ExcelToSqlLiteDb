@@ -14,6 +14,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ExcelToSqlLiteDb
@@ -34,7 +35,10 @@ namespace ExcelToSqlLiteDb
         SQLiteCommand com;
         string str;
 
-
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Uri.ToString());
+        }
         public IRGQuerying()
         {
             InitializeComponent();
