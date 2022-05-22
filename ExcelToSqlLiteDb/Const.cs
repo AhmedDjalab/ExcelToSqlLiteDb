@@ -8,6 +8,6 @@ namespace ExcelToSqlLiteDb
 {
     public static class Const
     {
-        public static string DATABASENAME = "payrollDb.sqlite"; 
+        public static string DATABASENAME = "payroll.sqlite"; 
     }
 }

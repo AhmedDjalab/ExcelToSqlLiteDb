@@ -21,6 +21,7 @@ namespace ExcelToSqlLiteDb
         SQLiteConnection Con = SeedDatabase.Con;
         SQLiteCommand com;
         string str;
+        public Window IRGW { get; set; }
 
         // when load must verify if there any data in dataBase 
         public bool CheckDataBaseIsEmpty()
@@ -64,8 +65,11 @@ namespace ExcelToSqlLiteDb
         {
             InitializeComponent();
             SeedDatabase.seedData();
-            DataBaseIsEmpty = CheckDataBaseIsEmpty();
-            GetDegreeAndDescriptionDatoToSelect();
+            IRGW = new IRGQuerying();
+            IRGW.ShowDialog();
+             
+            //DataBaseIsEmpty = CheckDataBaseIsEmpty();
+            //GetDegreeAndDescriptionDatoToSelect();
         }
 
 

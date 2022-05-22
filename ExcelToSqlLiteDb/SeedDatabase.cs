@@ -14,146 +14,16 @@ namespace ExcelToSqlLiteDb
 	{
 
 
-		public static string str = @"CREATE TABLE [company] (
-	[id] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-	[title] text, 
-	[nbank] text
-)
-
-;
-CREATE TABLE[degree] (
-
-   [title] text,
-
-   [id] integer NOT NULL PRIMARY KEY AUTOINCREMENT
-)
-;
-
-CREATE TABLE[description] (
-
-   [id] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [title] text
-)
-;
-
-CREATE TABLE[degreeDescription] (
-
-   [id] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [degreeId] integer NOT NULL, 
-	[descriptionId] integer NOT NULL, 
-	[amount] double, 
-	FOREIGN KEY([degreeId])
-		REFERENCES[degree] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE,
-   FOREIGN KEY([descriptionId])
-		REFERENCES[description] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE
-)
-;
-
-CREATE TABLE[images] (
-
-   [id_img] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [imge] blob, 
-	[tag] text, 
-	[date_imge] integer, 
-	[type]
-		nvarchar(254)
+		public static string str = @"CREATE TABLE [IRGDATA] (
+	[id]	INTEGER NOT NULL,
+	[CASMensuel_Soumis]    NUMERIC,
+	[CASIRG] NUMERIC,
+	[Mensuel_Soumis] NUMERIC,
+	[Mensuel_NET]    NUMERIC,
+	[IRG]   NUMERIC,
+	PRIMARY KEY([id] AUTOINCREMENT)
 );
-
-
-CREATE TABLE[info_emp] (
-
-   [id] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [certfica] text, 
-	[post] text, 
-	[ccp_count] integer, 
-	[nb_social] integer, 
-	[degre] integer, 
-	[class] integer, 
-	[date_entre] integer, 
-	[date_install] integer
-)
-;
-
-CREATE TABLE[employee] (
-
-   [id] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [name] text, 
-	[prenom] text, 
-	[date_naiss] datetime, 
-	[place_naiss] text, 
-	[gender] text, 
-	[stat] text, 
-	[nb_child] integer, 
-	[age] integer, 
-	[address] text, 
-	[nb_mobile] integer, 
-	[companyId] integer NOT NULL, 
-	[imageId] integer, 
-	[degDescId] integer NOT NULL, 
-	[infoEmpId] integer NOT NULL, 
-	FOREIGN KEY([infoEmpId])
-		REFERENCES[info_emp] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE,
-   FOREIGN KEY([degDescId])
-		REFERENCES[degreeDescription] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE,
-   FOREIGN KEY([imageId])
-		REFERENCES[images] ([id_img])
-	   ON UPDATE NO ACTION ON DELETE CASCADE
-)
-;
-
-CREATE TABLE[mois] (
-
-   [id_mois] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [ref] integer, 
-	[mois] text
-)
-;
-
-CREATE TABLE[salaire] (
-
-   [id_sal] integer NOT NULL PRIMARY KEY AUTOINCREMENT,
-
-   [sall_base] integer, 
-	[experince] integer, 
-	[time175] integer, 
-	[time200] integer, 
-	[recupration] integer, 
-	[zone] integer, 
-	[rendement] integer, 
-	[sall_post] integer, 
-	[cnas] integer, 
-	[stand] integer, 
-	[txavec_cnas] integer, 
-	[irg] integer, 
-	[B_salaire] integer, 
-	[ordinaires] integer, 
-	[hebergement] integer, 
-	[trnsport] integer, 
-	[scolaire] integer, 
-	[sal_net] integer, 
-	[empId] integer, 
-	[degDesId] integer, 
-	[moisId] integer, 
-	FOREIGN KEY([moisId])
-		REFERENCES[mois] ([id_mois])
-	   ON UPDATE NO ACTION ON DELETE CASCADE,
-   FOREIGN KEY([empId])
-		REFERENCES[employee] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE,
-   FOREIGN KEY([degDesId])
-		REFERENCES[degreeDescription] ([id])
-	   ON UPDATE NO ACTION ON DELETE CASCADE
-)";
+";
 
 
 		public static SQLiteConnection Con = new SQLiteConnection("Data Source=" + Const.DATABASENAME+"; Version=3;");

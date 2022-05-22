@@ -1,0 +1,26 @@
+﻿<Window x:Class="ExcelToSqlLiteDb.IRGQuerying"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExcelToSqlLiteDb"
+        mc:Ignorable="d"
+        Title="IRGQuerying" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Grid Height="433">
+        <TextBox  HorizontalAlignment="Left" Height="43" Margin="138,93,0,0" TextWrapping="Wrap"   
+            Text="Excel File" VerticalAlignment="Top" Width="436" x:Name="FileNameTextBox" TextAlignment="Left"/>
+        <Button x:Name="BrowseButton" Content="Browse a file" HorizontalAlignment="Left"   
+            Margin="593,96,0,0" VerticalAlignment="Top" Width="121" Click="BrowseButton_Click"   
+            RenderTransformOrigin="1.047,0.821" Height="40"/>
+        <ProgressBar x:Name="progrssbar" Height="50" Width="500" Visibility="Collapsed"/>
+        <Button x:Name="SaveBt" Content="Sava Data" HorizontalAlignment="Center"   
+            Margin="0,157,0,0" VerticalAlignment="Top" Width="120" Click="SaveBt_Click"   
+            RenderTransformOrigin="1.047,0.821" Height="40"/>
+        <TextBox x:Name="salaryNet" HorizontalAlignment="Left" Margin="42,287,0,0" TextWrapping="Wrap" Text="Mensuel Soumis" VerticalAlignment="Top" Width="208" Height="21" KeyDown="salaryNet_KeyDown"/>
+        <TextBox x:Name="IRG" HorizontalAlignment="Center" Margin="0,287,0,0" TextWrapping="Wrap" Text="IRG" VerticalAlignment="Top" Width="208" Height="21"/>
+        <TextBox x:Name="CASIRG" HorizontalAlignment="Left" Margin="538,287,0,0" TextWrapping="Wrap" Text="IRG cas particuliers" VerticalAlignment="Top" Width="208" Height="21"/>
+        <Label Content="IRG&#xD;&#xA;" HorizontalAlignment="Left" Margin="299,254,0,0" VerticalAlignment="Top" Height="28"/>
+        <Label Content="IRG cas particuliers" HorizontalAlignment="Left" Margin="538,254,0,0" VerticalAlignment="Top" Height="28" Width="157"/>
+
+    </Grid>
+</Window>
