@@ -251,8 +251,8 @@ namespace ExcelToSqlLiteDb
                     var correctSalary2 = Math.Round(correctSalary/10) * 10 ;
                     var listresult = queryingDatabase(correctSalary2.ToString());
                     // query database 
-                    IRG.Text = listresult[0]; 
-                    CASIRG.Text = listresult[1]; 
+                    IRG.Text = Math.Round(double.Parse(listresult[0])).ToString(); 
+                    CASIRG.Text = Math.Round(double.Parse(listresult[1])).ToString();
                 }
             }
         }
