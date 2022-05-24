@@ -216,11 +216,12 @@ namespace ExcelToSqlLiteDb
             }
             Application.Current.Dispatcher.Invoke(() => {
                 progrssbar.Visibility = Visibility.Collapsed;
-                SaveBt.Visibility = Visibility.Visible;
+                excelbuttonpanel.Visibility = Visibility.Collapsed;
+                clickhereText.Visibility = Visibility.Collapsed;
                 
             });
 
-            // else create data 
+            
         }
 
 
@@ -255,10 +256,28 @@ namespace ExcelToSqlLiteDb
                     var correctSalary2 = Math.Round(correctSalary/10) * 10 ;
                     var listresult = queryingDatabase(correctSalary2.ToString());
                     // query database 
+                    if (listresult.Count == 0)
+                    {
+                        IRG.Text = "0";
+                        CASIRG.Text = "0";
+                        return; 
+                    }
                     IRG.Text = Math.Round(double.Parse(listresult[0])).ToString(); 
                     CASIRG.Text = Math.Round(double.Parse(listresult[1])).ToString();
                 }
             }
+        }
+
+        private void Label_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            clickhereText.Visibility = Visibility.Collapsed; 
+            excelbuttonpanel.Visibility = Visibility.Visible;
+        }
+
+        private void cancelBt_Click(object sender, RoutedEventArgs e)
+        {
+            clickhereText.Visibility = Visibility.Visible;
+            excelbuttonpanel.Visibility = Visibility.Collapsed;
         }
     }
 }
