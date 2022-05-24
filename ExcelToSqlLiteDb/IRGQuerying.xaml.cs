@@ -31,9 +31,13 @@ namespace ExcelToSqlLiteDb
         public  DataTable dataRecords { get; set; }
 
         public bool DataBaseIsEmpty { get; set; }
+        public double originalIRG { get;  set; }
+        public double originalCASIRG { get;  set; }
+
         SQLiteConnection Con = SeedDatabase.Con;
         SQLiteCommand com;
         string str;
+        
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
@@ -262,8 +266,19 @@ namespace ExcelToSqlLiteDb
                         CASIRG.Text = "0";
                         return; 
                     }
-                    IRG.Text = Math.Round(double.Parse(listresult[0])).ToString(); 
+
+                    originalIRG = double.Parse(listresult[0]);
+                    originalCASIRG = double.Parse(listresult[1]); 
+                    if (Round.IsChecked == true )
+                    {
+                      IRG.Text = Math.Round(double.Parse(listresult[0])).ToString(); 
                     CASIRG.Text = Math.Round(double.Parse(listresult[1])).ToString();
+                    } else
+                    {
+                        IRG.Text = double.Parse(listresult[0]).ToString();
+                        CASIRG.Text = double.Parse(listresult[1]).ToString();
+                    }
+                    
                 }
             }
         }
@@ -278,6 +293,26 @@ namespace ExcelToSqlLiteDb
         {
             clickhereText.Visibility = Visibility.Visible;
             excelbuttonpanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void Round_Click(object sender, RoutedEventArgs e)
+        {
+            if( !String.IsNullOrEmpty(IRG.Text) && !String.IsNullOrEmpty(CASIRG.Text))
+            {
+              
+                
+
+                if (Round.IsChecked == true)
+                {
+                    IRG.Text = Math.Round(originalIRG).ToString();
+                    CASIRG.Text = Math.Round(originalCASIRG).ToString();
+                }
+                else
+                {
+                    IRG.Text = originalIRG.ToString();
+                    CASIRG.Text = originalCASIRG.ToString();
+                }
+            } 
         }
     }
 }

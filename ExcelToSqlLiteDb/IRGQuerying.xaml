@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ExcelToSqlLiteDb"
         Background="#D1EFF5"
         mc:Ignorable="d"
-        Title="IRG" Height="600
+        Title="IRG 2022" Height="650
         " Width="300" ResizeMode="CanResize">
     <Grid   >
         <Grid.ColumnDefinitions>
@@ -95,7 +95,7 @@
             </StackPanel>
 
 
-            <StackPanel  Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,10">
+            <StackPanel  CanVerticallyScroll="True" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,10">
 
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type StackPanel}">
@@ -103,7 +103,7 @@
                     </Style>
                     <Style TargetType="{x:Type TextBox}">
                         <Setter Property="FontSize" Value="20"/>
-                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="Height" Value="40"/>
                         <Setter Property="Width" Value="200"/>
                     </Style>
                     
@@ -124,9 +124,13 @@
 
                     <TextBox x:Name="CASIRG" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" />
                 </StackPanel>
-              
-          
-            
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="التدوير" Foreground="Black" />
+
+                    <CheckBox   x:Name="Round"  Background="#FFFFFBFB" BorderBrush="#FFFBF6F6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Click="Round_Click" />
+                </StackPanel>
             </StackPanel>
         </Grid>
        
