@@ -1,5 +1,4 @@
-﻿using Spire.Xls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -113,30 +112,30 @@ namespace ExcelToSqlLiteDb
                 FileNameTextBox.Text = openFileDlg.FileName;
                 FilePath = openFileDlg.FileName;
 
-                dataRecords =  FillDatabase();
+               // dataRecords =  FillDatabase();
 
             }
         }
 
-        private DataTable FillDatabase()
-        {
-            // Load the data fromexcel 
+        //private DataTable FillDatabase()
+        //{
+        //    // Load the data fromexcel 
 
 
-            string fileName = FilePath;
-            Workbook workbook = new Workbook();
-            workbook.LoadFromFile(fileName);
-            Worksheet sheet = workbook.Worksheets[0];
-            // this can't work in the case of duplicated nubmers
-            DataTable data = sheet.ExportDataTable();
+        //    string fileName = FilePath;
+        //    Workbook workbook = new Workbook();
+        //    workbook.LoadFromFile(fileName);
+        //    Worksheet sheet = workbook.Worksheets[0];
+        //    // this can't work in the case of duplicated nubmers
+        //    DataTable data = sheet.ExportDataTable();
 
 
 
-            int WidthOfTable = data.Columns.Count;
-            int HeightOfTable = data.Rows.Count;
+        //    int WidthOfTable = data.Columns.Count;
+        //    int HeightOfTable = data.Rows.Count;
 
 
-            return data; 
+        //    return data; 
 
             
             
@@ -144,7 +143,7 @@ namespace ExcelToSqlLiteDb
             
            
            
-        }
+        //}
 
 
         private async Task deleteAllRecords()
